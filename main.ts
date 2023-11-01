@@ -2,18 +2,18 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile0`, function (sprite, l
     game.gameOver(true)
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    projectile = sprites.createProjectileFromSprite(img`
-        . . . 2 2 . . . 
-        . . 2 2 2 2 . . 
-        . 2 2 4 4 2 2 . 
-        . . 2 1 4 2 . . 
-        . . 4 2 1 4 . . 
-        . . 4 2 2 4 . . 
-        . . . 2 2 . . . 
-        . . . 2 2 . . . 
-        `, Render.getRenderSpriteInstance(), Render.getAttribute(Render.attribute.dirX) * 145, Render.getAttribute(Render.attribute.dirY) * 145)
-    projectile.setFlag(SpriteFlag.AutoDestroy, true)
-    projectile.setScale(0.75, ScaleAnchor.Middle)
+    fire_ball = sprites.createProjectileFromSprite(img`
+        . . . . . . . . 
+        . . . . . . . . 
+        . . 2 2 . . . . 
+        . 2 1 1 2 . . . 
+        . 4 2 2 4 . . . 
+        . . 4 4 . . . . 
+        . . . . . . . . 
+        . . . . . . . . 
+        `, Render.getRenderSpriteInstance(), Render.getAttribute(Render.attribute.dirX) * 155, Render.getAttribute(Render.attribute.dirY) * 155)
+    fire_ball.setFlag(SpriteFlag.AutoDestroy, true)
+    fire_ball.setScale(0.75, ScaleAnchor.Middle)
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     Render.jumpWithHeightAndDuration(mySprite, 9, 500)
@@ -617,7 +617,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
 })
 let health2: Sprite = null
 let bad_guy: Sprite = null
-let projectile: Sprite = null
+let fire_ball: Sprite = null
 let mySprite: Sprite = null
 game.setDialogFrame(img`
     ..................................................................
