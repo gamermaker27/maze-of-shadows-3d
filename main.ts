@@ -13,7 +13,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . . . . . 
         `, Render.getRenderSpriteInstance(), Render.getAttribute(Render.attribute.dirX) * 155, Render.getAttribute(Render.attribute.dirY) * 155)
     fire_ball.setFlag(SpriteFlag.AutoDestroy, true)
-    fire_ball.setScale(0.75, ScaleAnchor.Middle)
+    fire_ball.setScale(1, ScaleAnchor.Middle)
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     Render.jumpWithHeightAndDuration(mySprite, 9, 500)
