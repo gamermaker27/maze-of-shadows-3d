@@ -6,7 +6,8 @@
         "device": "*",
         "pxt-raycasting": "github:aqeeaqee/pxt-raycasting#v0.3.18",
         "carnival": "github:microsoft/arcade-carnival#v0.0.7",
-        "darts": "*"
+        "darts": "*",
+        "animation": "*"
     },
     "files": [
         "main.blocks",
