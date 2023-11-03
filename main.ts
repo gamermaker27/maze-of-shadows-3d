@@ -316,7 +316,7 @@ function health () {
         ....................
         `, SpriteKind.Food)
     tiles.placeOnRandomTile(health2, assets.tile`myTile`)
-    health2.setScale(1.25, ScaleAnchor.Middle)
+    health2.setScale(1.5, ScaleAnchor.Middle)
     animation.runImageAnimation(
     health2,
     [img`
