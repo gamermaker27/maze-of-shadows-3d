@@ -14,6 +14,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
         `, Render.getRenderSpriteInstance(), Render.getAttribute(Render.attribute.dirX) * 155, Render.getAttribute(Render.attribute.dirY) * 155)
     fire_ball.setFlag(SpriteFlag.AutoDestroy, true)
     fire_ball.setScale(1, ScaleAnchor.Middle)
+    music.play(music.melodyPlayable(music.pewPew), music.PlaybackMode.InBackground)
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     Render.jumpWithHeightAndDuration(mySprite, 9, 500)
@@ -472,9 +473,11 @@ function health () {
     )
 }
 controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
+    music.play(music.melodyPlayable(music.buzzer), music.PlaybackMode.InBackground)
     game.showLongText("use arrow keys to move and look around. press \"A\" to jump. press \"B\"to shoot the Ghouls. find and Shoot all Ghouls and find all the chests to win", DialogLayout.Full)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+    music.play(music.melodyPlayable(music.powerUp), music.PlaybackMode.InBackground)
     game.showLongText("here have an extra life", DialogLayout.Bottom)
     sprites.destroy(otherSprite, effects.hearts, 2000)
     info.changeLifeBy(1)
@@ -690,6 +693,7 @@ game.setDialogFrame(img`
 game.showLongText("You find yourself in the dreaded Maze of Shadows, surrounded by malevolent ghouls guarding three hidden chests. ", DialogLayout.Full)
 game.showLongText("You must navigate the ghoulish maze and evade the sinister spirits to claim the treasure or face a haunting demise.", DialogLayout.Full)
 game.showLongText("use arrow keys to move and look around. press \"A\" to jump. press \"B\"to shoot the Ghouls. find and Shoot all Ghouls and find all the chests to win", DialogLayout.Full)
+music.play(music.createSong(hex`0064000408020107001c00020a006400f4016400000400000000000000000000000000000000036b000000040002081d0400080002162008000c000208240c001000020f271000140001271400180002142418001c0001081c0020000118200024000211272400280002182728002c0001242c00300001123000340001083400380002182738003c0003080f273c004000021224`), music.PlaybackMode.LoopingInBackground)
 Render.setViewMode(ViewMode.raycastingView)
 mySprite = Render.getRenderSpriteVariable()
 scene.setBackgroundImage(img`
